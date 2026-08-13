@@ -1,0 +1,171 @@
+source:
+  type: video          # video | webcam | rtsp
+  path: videos/test1.mp4
+  webcam_id: 0
+  rtsp_url: rtsp://username:password@192.168.1.1:554/stream
+
+model:
+  name: yolov8n-pose.pt
+  confidence: 0.4
+  input_size: 640
+
+tracking:
+  tracker: bytetrack       # bytetrack | botsort
+  max_missing_frames: 10   # frames before track is dropped
+  pose_conf_threshold: 0.3 # below this = LOW QUALITY pose
+
+history:
+  max_frames: 90           # rolling buffer length (~3s at 30fps)
+  expiry_seconds: 3.0      # drop history if track missing this long
+
+display:
+  show_fps: true
+  show_device: true
+  show_count: true
+  debug: false             # set true for per-person debug overlay
+
+fall_detection:
+  # --- Detection confidence gates ---
+  min_pose_confidence: 0.25
+  # Minimum mean keypoint confidence to trust pose for fall scoring.
+  # Lower = more detections used but noisier. Prevents low-quality pose
+  # from triggering false positives. Raise if false positives occur.
+
+  min_track_age: 8
+  # Minimum frames a track must exist before fall scoring begins.
+  # Prevents a person entering the frame already horizontal from
+  # immediately triggering a fall. Raise if entry-frame false positives occur.
+
+  # --- Posture signal ---
+  horizontal_torso_angle: 50.0
+  # Torso angle (degrees from vertical) above which posture is considered
+  # horizontal/low. 0=upright, 90=fully horizontal. 50 chosen as midpoint
+  # that catches falls without triggering on forward bends (~30-40 deg).
+  # Lower = more sensitive, higher = misses shallow falls.
+
+  upright_torso_angle: 30.0
+  # Torso angle below which posture is considered upright/normal.
+  # Used for recovery detection. Must be < horizontal_torso_angle.
+
+  horizontal_aspect_ratio: 1.3
+  # Bounding-box width/height ratio above which box is considered wide/horizontal.
+  # Standing person ~0.3-0.5, lying person ~1.5-3.0. 1.3 is conservative.
+  # Used as supporting signal only, never alone.
+
+  # --- Velocity / transition signal ---
+  fall_velocity_threshold: 0.08
+  # Minimum downward velocity (fraction of box height per frame) to count
+  # as rapid descent. Filters slow intentional lying-down from sudden falls.
+  # Lower = catches slower falls, higher = only catches fast collapses.
+
+  transition_window_frames: 12
+  # Number of recent frames to scan for the upright→horizontal transition.
+  # At 8 FPS this is ~1.5s. Too short misses slow falls, too long
+  # includes unrelated prior postures.
+
+  # --- State machine timing ---
+  possible_fall_frames: 4
+  # Consecutive frames of high fall_score required to enter POSSIBLE_FALL.
+  # Prevents single-frame noise. At 8 FPS = ~0.5s.
+
+  confirm_fall_seconds: 1.5
+  # Seconds person must remain in low posture after POSSIBLE_FALL before
+  # FALL_CONFIRMED. Filters stumble+recovery and intentional lying down
+  # that happens quickly. Raise to reduce false positives.
+
+  post_fall_duration_seconds: 10.0
+  # Seconds to monitor after FALL_CONFIRMED before considering recovery.
+  # Gives time to observe whether person gets up.
+
+  recovery_upright_seconds: 2.0
+  # Seconds person must remain upright to transition RECOVERED → NORMAL.
+  # Prevents flickering back to NORMAL on a brief upright moment.
+
+  # --- Motion signal ---
+  stillness_threshold: 6.0
+  # Maximum pixel movement (position_delta) per frame to be considered
+  # still/motionless. Used in post-fall monitoring. Higher = more tolerant
+  # of small movements after a fall.
+
+  # --- False-positive reduction (Phase 4A) ---
+  controlled_transition_seconds: 1.2
+  # If the upright→horizontal transition takes longer than this, it is
+  # considered controlled (sitting, lying down intentionally) and the
+  # transition score is penalised. A genuine fall typically completes
+  # in < 0.5s. Raise to be more lenient toward slow falls.
+
+  min_upright_frames_before_fall: 6
+  # Minimum frames the person must have been upright BEFORE the posture
+  # change to count as a fall transition. Prevents a person who enters
+  # the frame already low from accumulating a transition score.
+  # Directly addresses the "enters already lying" false positive.
+
+  observability_high_threshold: 0.55
+  # Mean keypoint confidence above which observability is HIGH.
+  # Below this, decisions are made with reduced confidence.
+
+  observability_low_threshold: 0.30
+  # Mean keypoint confidence below which observability is LOW.
+  # In LOW observability the state machine will not advance toward
+  # FALL_CONFIRMED — it enters UNKNOWN_LOW_POSTURE instead.
+
+  min_visible_keypoints: 5
+  # Minimum number of keypoints above pose_conf_threshold required
+  # for HIGH observability. Fewer keypoints = occlusion or small person.
+
+  unknown_low_posture_upright_seconds: 1.5
+  # Seconds a person in UNKNOWN_LOW_POSTURE must remain upright before
+  # transitioning to NORMAL. Prevents immediate re-entry.
+
+risk_engine:
+  # --- Emergency score thresholds ---
+  emergency_score_threshold: 0.72
+  # health_emergency_score above which POTENTIAL_HEALTH_EMERGENCY is triggered.
+  # Must persist for emergency_persist_seconds before state changes.
+  # Raise to reduce false positives; lower to catch more marginal cases.
+
+  emergency_persist_seconds: 3.0
+  # Seconds the score must stay above threshold before declaring emergency.
+  # Prevents transient high scores from triggering the state.
+
+  emergency_clear_seconds: 4.0
+  # Seconds the score must stay BELOW threshold before clearing emergency.
+  # Hysteresis: prevents flickering in/out of emergency state.
+
+  # --- Time-down signal ---
+  time_down_reference_seconds: 15.0
+  # Seconds of being down that maps to a full time_down score of 1.0.
+  # A person down for this long with no recovery is a strong signal.
+  # Raise if too many false positives from people sitting on the floor.
+
+  # --- Inactivity signal ---
+  inactivity_window_frames: 20
+  # Number of recent frames used to measure post-fall movement.
+  # Larger window = more stable inactivity estimate.
+
+  inactivity_stillness_px: 8.0
+  # Average pixel movement per frame below which person is considered inactive.
+  # Higher = more tolerant of small movements (breathing, camera jitter).
+
+  # --- Recovery signal ---
+  recovery_motion_threshold: 15.0
+  # Average pixel movement per frame above which person is considered
+  # actively recovering/moving. Lowers emergency score.
+
+camera:
+  id: CAM-001                # Must match a camera_id in cameras.yaml
+  registry: cameras.yaml     # path to camera registry
+
+evidence:
+  snapshot_dir: outputs/snapshots   # directory for incident snapshot images
+
+incident:
+  db_path: outputs/incidents.db     # SQLite database path
+
+dashboard:
+  host: 127.0.0.1
+  port: 5000
+
+logging:
+  event_log: outputs/events.log       # state transition log file
+  incident_log: outputs/incidents.json  # legacy JSON log (kept for compatibility)

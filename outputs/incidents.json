@@ -1,0 +1,2177 @@
+[
+  {
+    "event_id": "9d5fe973",
+    "camera_id": "CAMERA_01",
+    "person_id": 11,
+    "start_time": 1786362004.390705,
+    "timeline": [
+      {
+        "timestamp": 1786362004.390705,
+        "state": "MONITORING",
+        "risk_score": 0.724,
+        "fall_score": 0.979,
+        "duration_down": 0.0,
+        "reason": {
+          "fall_evidence": 0.979,
+          "time_down": 0.0,
+          "inactivity": 0.958,
+          "no_recovery": 0.955
+        }
+      },
+      {
+        "timestamp": 1786362004.490933,
+        "state": "MONITORING",
+        "risk_score": 0.729,
+        "fall_score": 0.979,
+        "duration_down": 0.1,
+        "reason": {
+          "fall_evidence": 0.979,
+          "time_down": 0.007,
+          "inactivity": 0.964,
+          "no_recovery": 0.962
+        }
+      },
+      {
+        "timestamp": 1786362004.6392477,
+        "state": "MONITORING",
+        "risk_score": 0.669,
+        "fall_score": 0.763,
+        "duration_down": 0.2,
+        "reason": {
+          "fall_evidence": 0.763,
+          "time_down": 0.017,
+          "inactivity": 0.971,
+          "no_recovery": 0.969
+        }
+      },
+      {
+        "timestamp": 1786362004.7314317,
+        "state": "MONITORING",
+        "risk_score": 0.672,
+        "fall_score": 0.763,
+        "duration_down": 0.3,
+        "reason": {
+          "fall_evidence": 0.763,
+          "time_down": 0.023,
+          "inactivity": 0.974,
+          "no_recovery": 0.972
+        }
+      },
+      {
+        "timestamp": 1786362004.8204358,
+        "state": "MONITORING",
+        "risk_score": 0.674,
+        "fall_score": 0.764,
+        "duration_down": 0.4,
+        "reason": {
+          "fall_evidence": 0.764,
+          "time_down": 0.029,
+          "inactivity": 0.974,
+          "no_recovery": 0.972
+        }
+      },
+      {
+        "timestamp": 1786362004.9178927,
+        "state": "MONITORING",
+        "risk_score": 0.678,
+        "fall_score": 0.764,
+        "duration_down": 0.5,
+        "reason": {
+          "fall_evidence": 0.764,
+          "time_down": 0.035,
+          "inactivity": 0.978,
+          "no_recovery": 0.977
+        }
+      },
+      {
+        "timestamp": 1786362005.0115252,
+        "state": "MONITORING",
+        "risk_score": 0.68,
+        "fall_score": 0.766,
+        "duration_down": 0.6,
+        "reason": {
+          "fall_evidence": 0.766,
+          "time_down": 0.041,
+          "inactivity": 0.978,
+          "no_recovery": 0.977
+        }
+      },
+      {
+        "timestamp": 1786362005.125847,
+        "state": "MONITORING",
+        "risk_score": 0.659,
+        "fall_score": 0.691,
+        "duration_down": 0.7,
+        "reason": {
+          "fall_evidence": 0.691,
+          "time_down": 0.049,
+          "inactivity": 0.978,
+          "no_recovery": 0.977
+        }
+      },
+      {
+        "timestamp": 1786362005.2248878,
+        "state": "MONITORING",
+        "risk_score": 0.667,
+        "fall_score": 0.705,
+        "duration_down": 0.8,
+        "reason": {
+          "fall_evidence": 0.705,
+          "time_down": 0.056,
+          "inactivity": 0.981,
+          "no_recovery": 0.98
+        }
+      }
+    ],
+    "final_state": "MONITORING",
+    "peak_risk_score": 0.729
+  },
+  {
+    "event_id": "e6fa347f",
+    "camera_id": "CAMERA_01",
+    "person_id": 11,
+    "start_time": 1786362405.000818,
+    "timeline": [
+      {
+        "timestamp": 1786362405.000818,
+        "state": "MONITORING",
+        "risk_score": 0.724,
+        "fall_score": 0.979,
+        "duration_down": 0.0,
+        "reason": {
+          "fall_evidence": 0.979,
+          "time_down": 0.0,
+          "inactivity": 0.958,
+          "no_recovery": 0.955
+        }
+      },
+      {
+        "timestamp": 1786362405.0979753,
+        "state": "MONITORING",
+        "risk_score": 0.729,
+        "fall_score": 0.979,
+        "duration_down": 0.1,
+        "reason": {
+          "fall_evidence": 0.979,
+          "time_down": 0.006,
+          "inactivity": 0.964,
+          "no_recovery": 0.962
+        }
+      },
+      {
+        "timestamp": 1786362405.1945896,
+        "state": "MONITORING",
+        "risk_score": 0.669,
+        "fall_score": 0.763,
+        "duration_down": 0.2,
+        "reason": {
+          "fall_evidence": 0.763,
+          "time_down": 0.013,
+          "inactivity": 0.971,
+          "no_recovery": 0.969
+        }
+      },
+      {
+        "timestamp": 1786362405.3079433,
+        "state": "MONITORING",
+        "risk_score": 0.672,
+        "fall_score": 0.763,
+        "duration_down": 0.3,
+        "reason": {
+          "fall_evidence": 0.763,
+          "time_down": 0.02,
+          "inactivity": 0.974,
+          "no_recovery": 0.972
+        }
+      },
+      {
+        "timestamp": 1786362405.4010546,
+        "state": "MONITORING",
+        "risk_score": 0.674,
+        "fall_score": 0.764,
+        "duration_down": 0.4,
+        "reason": {
+          "fall_evidence": 0.764,
+          "time_down": 0.027,
+          "inactivity": 0.974,
+          "no_recovery": 0.972
+        }
+      },
+      {
+        "timestamp": 1786362405.5309322,
+        "state": "MONITORING",
+        "risk_score": 0.678,
+        "fall_score": 0.764,
+        "duration_down": 0.5,
+        "reason": {
+          "fall_evidence": 0.764,
+          "time_down": 0.035,
+          "inactivity": 0.978,
+          "no_recovery": 0.977
+        }
+      },
+      {
+        "timestamp": 1786362405.6360657,
+        "state": "MONITORING",
+        "risk_score": 0.68,
+        "fall_score": 0.766,
+        "duration_down": 0.6,
+        "reason": {
+          "fall_evidence": 0.766,
+          "time_down": 0.042,
+          "inactivity": 0.978,
+          "no_recovery": 0.977
+        }
+      },
+      {
+        "timestamp": 1786362405.7310925,
+        "state": "MONITORING",
+        "risk_score": 0.659,
+        "fall_score": 0.691,
+        "duration_down": 0.7,
+        "reason": {
+          "fall_evidence": 0.691,
+          "time_down": 0.049,
+          "inactivity": 0.978,
+          "no_recovery": 0.977
+        }
+      },
+      {
+        "timestamp": 1786362405.8436315,
+        "state": "MONITORING",
+        "risk_score": 0.667,
+        "fall_score": 0.705,
+        "duration_down": 0.8,
+        "reason": {
+          "fall_evidence": 0.705,
+          "time_down": 0.056,
+          "inactivity": 0.981,
+          "no_recovery": 0.98
+        }
+      }
+    ],
+    "final_state": "MONITORING",
+    "peak_risk_score": 0.729
+  },
+  {
+    "event_id": "d9a1f77c",
+    "camera_id": "CAMERA_01",
+    "person_id": 3,
+    "start_time": 1786453725.7761922,
+    "timeline": [
+      {
+        "timestamp": 1786453725.7761922,
+        "state": "MONITORING",
+        "risk_score": 0.586,
+        "fall_score": 0.627,
+        "duration_down": 0.0,
+        "reason": {
+          "fall_evidence": 0.627,
+          "time_down": 0.0,
+          "inactivity": 0.887,
+          "no_recovery": 0.879
+        }
+      },
+      {
+        "timestamp": 1786453725.9197788,
+        "state": "MONITORING",
+        "risk_score": 0.583,
+        "fall_score": 0.61,
+        "duration_down": 0.1,
+        "reason": {
+          "fall_evidence": 0.61,
+          "time_down": 0.01,
+          "inactivity": 0.887,
+          "no_recovery": 0.879
+        }
+      },
+      {
+        "timestamp": 1786453726.0694942,
+        "state": "MONITORING",
+        "risk_score": 0.522,
+        "fall_score": 0.402,
+        "duration_down": 0.3,
+        "reason": {
+          "fall_evidence": 0.402,
+          "time_down": 0.02,
+          "inactivity": 0.884,
+          "no_recovery": 0.876
+        }
+      },
+      {
+        "timestamp": 1786453726.199434,
+        "state": "MONITORING",
+        "risk_score": 0.52,
+        "fall_score": 0.385,
+        "duration_down": 0.4,
+        "reason": {
+          "fall_evidence": 0.385,
+          "time_down": 0.028,
+          "inactivity": 0.886,
+          "no_recovery": 0.879
+        }
+      },
+      {
+        "timestamp": 1786453726.4604418,
+        "state": "MONITORING",
+        "risk_score": 0.524,
+        "fall_score": 0.383,
+        "duration_down": 0.7,
+        "reason": {
+          "fall_evidence": 0.383,
+          "time_down": 0.046,
+          "inactivity": 0.886,
+          "no_recovery": 0.879
+        }
+      },
+      {
+        "timestamp": 1786453726.6050735,
+        "state": "MONITORING",
+        "risk_score": 0.522,
+        "fall_score": 0.369,
+        "duration_down": 0.8,
+        "reason": {
+          "fall_evidence": 0.369,
+          "time_down": 0.055,
+          "inactivity": 0.886,
+          "no_recovery": 0.879
+        }
+      },
+      {
+        "timestamp": 1786453726.7456927,
+        "state": "MONITORING",
+        "risk_score": 0.521,
+        "fall_score": 0.354,
+        "duration_down": 1.0,
+        "reason": {
+          "fall_evidence": 0.354,
+          "time_down": 0.065,
+          "inactivity": 0.889,
+          "no_recovery": 0.882
+        }
+      },
+      {
+        "timestamp": 1786453726.8858328,
+        "state": "MONITORING",
+        "risk_score": 0.52,
+        "fall_score": 0.339,
+        "duration_down": 1.1,
+        "reason": {
+          "fall_evidence": 0.339,
+          "time_down": 0.074,
+          "inactivity": 0.893,
+          "no_recovery": 0.885
+        }
+      },
+      {
+        "timestamp": 1786453727.0129066,
+        "state": "MONITORING",
+        "risk_score": 0.52,
+        "fall_score": 0.33,
+        "duration_down": 1.2,
+        "reason": {
+          "fall_evidence": 0.33,
+          "time_down": 0.082,
+          "inactivity": 0.893,
+          "no_recovery": 0.885
+        }
+      },
+      {
+        "timestamp": 1786453727.1399674,
+        "state": "MONITORING",
+        "risk_score": 0.516,
+        "fall_score": 0.313,
+        "duration_down": 1.4,
+        "reason": {
+          "fall_evidence": 0.313,
+          "time_down": 0.091,
+          "inactivity": 0.891,
+          "no_recovery": 0.884
+        }
+      },
+      {
+        "timestamp": 1786453727.270402,
+        "state": "MONITORING",
+        "risk_score": 0.596,
+        "fall_score": 0.57,
+        "duration_down": 1.5,
+        "reason": {
+          "fall_evidence": 0.57,
+          "time_down": 0.1,
+          "inactivity": 0.891,
+          "no_recovery": 0.884
+        }
+      },
+      {
+        "timestamp": 1786453727.4052114,
+        "state": "MONITORING",
+        "risk_score": 0.607,
+        "fall_score": 0.556,
+        "duration_down": 1.6,
+        "reason": {
+          "fall_evidence": 0.556,
+          "time_down": 0.109,
+          "inactivity": 0.919,
+          "no_recovery": 0.914
+        }
+      },
+      {
+        "timestamp": 1786453727.537154,
+        "state": "MONITORING",
+        "risk_score": 0.647,
+        "fall_score": 0.706,
+        "duration_down": 1.8,
+        "reason": {
+          "fall_evidence": 0.706,
+          "time_down": 0.117,
+          "inactivity": 0.904,
+          "no_recovery": 0.898
+        }
+      },
+      {
+        "timestamp": 1786453727.6720257,
+        "state": "MONITORING",
+        "risk_score": 0.658,
+        "fall_score": 0.743,
+        "duration_down": 1.9,
+        "reason": {
+          "fall_evidence": 0.743,
+          "time_down": 0.126,
+          "inactivity": 0.9,
+          "no_recovery": 0.893
+        }
+      },
+      {
+        "timestamp": 1786453728.0520678,
+        "state": "MONITORING",
+        "risk_score": 0.625,
+        "fall_score": 0.61,
+        "duration_down": 2.3,
+        "reason": {
+          "fall_evidence": 0.61,
+          "time_down": 0.152,
+          "inactivity": 0.9,
+          "no_recovery": 0.893
+        }
+      },
+      {
+        "timestamp": 1786453728.183164,
+        "state": "MONITORING",
+        "risk_score": 0.657,
+        "fall_score": 0.715,
+        "duration_down": 2.4,
+        "reason": {
+          "fall_evidence": 0.715,
+          "time_down": 0.16,
+          "inactivity": 0.897,
+          "no_recovery": 0.891
+        }
+      },
+      {
+        "timestamp": 1786453728.313782,
+        "state": "MONITORING",
+        "risk_score": 0.664,
+        "fall_score": 0.732,
+        "duration_down": 2.5,
+        "reason": {
+          "fall_evidence": 0.732,
+          "time_down": 0.169,
+          "inactivity": 0.897,
+          "no_recovery": 0.891
+        }
+      },
+      {
+        "timestamp": 1786453728.4391997,
+        "state": "MONITORING",
+        "risk_score": 0.673,
+        "fall_score": 0.751,
+        "duration_down": 2.7,
+        "reason": {
+          "fall_evidence": 0.751,
+          "time_down": 0.178,
+          "inactivity": 0.899,
+          "no_recovery": 0.892
+        }
+      },
+      {
+        "timestamp": 1786453728.57375,
+        "state": "MONITORING",
+        "risk_score": 0.68,
+        "fall_score": 0.768,
+        "duration_down": 2.8,
+        "reason": {
+          "fall_evidence": 0.768,
+          "time_down": 0.187,
+          "inactivity": 0.899,
+          "no_recovery": 0.892
+        }
+      },
+      {
+        "timestamp": 1786453728.7072244,
+        "state": "MONITORING",
+        "risk_score": 0.687,
+        "fall_score": 0.782,
+        "duration_down": 2.9,
+        "reason": {
+          "fall_evidence": 0.782,
+          "time_down": 0.195,
+          "inactivity": 0.899,
+          "no_recovery": 0.892
+        }
+      },
+      {
+        "timestamp": 1786453728.8393693,
+        "state": "MONITORING",
+        "risk_score": 0.7,
+        "fall_score": 0.807,
+        "duration_down": 3.1,
+        "reason": {
+          "fall_evidence": 0.807,
+          "time_down": 0.204,
+          "inactivity": 0.908,
+          "no_recovery": 0.901
+        }
+      },
+      {
+        "timestamp": 1786453728.967381,
+        "state": "MONITORING",
+        "risk_score": 0.645,
+        "fall_score": 0.616,
+        "duration_down": 3.2,
+        "reason": {
+          "fall_evidence": 0.616,
+          "time_down": 0.213,
+          "inactivity": 0.908,
+          "no_recovery": 0.901
+        }
+      },
+      {
+        "timestamp": 1786453729.0955887,
+        "state": "MONITORING",
+        "risk_score": 0.65,
+        "fall_score": 0.631,
+        "duration_down": 3.3,
+        "reason": {
+          "fall_evidence": 0.631,
+          "time_down": 0.221,
+          "inactivity": 0.904,
+          "no_recovery": 0.898
+        }
+      },
+      {
+        "timestamp": 1786453729.5981445,
+        "state": "MONITORING",
+        "risk_score": 0.659,
+        "fall_score": 0.645,
+        "duration_down": 3.8,
+        "reason": {
+          "fall_evidence": 0.645,
+          "time_down": 0.255,
+          "inactivity": 0.896,
+          "no_recovery": 0.889
+        }
+      },
+      {
+        "timestamp": 1786453729.7264762,
+        "state": "MONITORING",
+        "risk_score": 0.668,
+        "fall_score": 0.662,
+        "duration_down": 4.0,
+        "reason": {
+          "fall_evidence": 0.662,
+          "time_down": 0.263,
+          "inactivity": 0.9,
+          "no_recovery": 0.893
+        }
+      },
+      {
+        "timestamp": 1786453729.8595238,
+        "state": "MONITORING",
+        "risk_score": 0.612,
+        "fall_score": 0.477,
+        "duration_down": 4.1,
+        "reason": {
+          "fall_evidence": 0.477,
+          "time_down": 0.272,
+          "inactivity": 0.894,
+          "no_recovery": 0.887
+        }
+      },
+      {
+        "timestamp": 1786453730.041163,
+        "state": "MONITORING",
+        "risk_score": 0.595,
+        "fall_score": 0.416,
+        "duration_down": 4.3,
+        "reason": {
+          "fall_evidence": 0.416,
+          "time_down": 0.284,
+          "inactivity": 0.889,
+          "no_recovery": 0.882
+        }
+      },
+      {
+        "timestamp": 1786453730.6782517,
+        "state": "MONITORING",
+        "risk_score": 0.597,
+        "fall_score": 0.398,
+        "duration_down": 4.9,
+        "reason": {
+          "fall_evidence": 0.398,
+          "time_down": 0.327,
+          "inactivity": 0.883,
+          "no_recovery": 0.875
+        }
+      },
+      {
+        "timestamp": 1786453730.8096116,
+        "state": "MONITORING",
+        "risk_score": 0.595,
+        "fall_score": 0.385,
+        "duration_down": 5.0,
+        "reason": {
+          "fall_evidence": 0.385,
+          "time_down": 0.335,
+          "inactivity": 0.883,
+          "no_recovery": 0.875
+        }
+      },
+      {
+        "timestamp": 1786453730.9365916,
+        "state": "MONITORING",
+        "risk_score": 0.593,
+        "fall_score": 0.368,
+        "duration_down": 5.2,
+        "reason": {
+          "fall_evidence": 0.368,
+          "time_down": 0.344,
+          "inactivity": 0.884,
+          "no_recovery": 0.877
+        }
+      },
+      {
+        "timestamp": 1786453731.0733101,
+        "state": "MONITORING",
+        "risk_score": 0.591,
+        "fall_score": 0.353,
+        "duration_down": 5.3,
+        "reason": {
+          "fall_evidence": 0.353,
+          "time_down": 0.353,
+          "inactivity": 0.884,
+          "no_recovery": 0.877
+        }
+      },
+      {
+        "timestamp": 1786453731.20389,
+        "state": "MONITORING",
+        "risk_score": 0.59,
+        "fall_score": 0.343,
+        "duration_down": 5.4,
+        "reason": {
+          "fall_evidence": 0.343,
+          "time_down": 0.362,
+          "inactivity": 0.884,
+          "no_recovery": 0.877
+        }
+      },
+      {
+        "timestamp": 1786453731.3377867,
+        "state": "MONITORING",
+        "risk_score": 0.599,
+        "fall_score": 0.328,
+        "duration_down": 5.6,
+        "reason": {
+          "fall_evidence": 0.328,
+          "time_down": 0.371,
+          "inactivity": 0.909,
+          "no_recovery": 0.903
+        }
+      },
+      {
+        "timestamp": 1786453731.4730244,
+        "state": "MONITORING",
+        "risk_score": 0.721,
+        "fall_score": 0.748,
+        "duration_down": 5.7,
+        "reason": {
+          "fall_evidence": 0.748,
+          "time_down": 0.38,
+          "inactivity": 0.895,
+          "no_recovery": 0.888
+        }
+      },
+      {
+        "timestamp": 1786453731.6052902,
+        "state": "MONITORING",
+        "risk_score": 0.729,
+        "fall_score": 0.778,
+        "duration_down": 5.8,
+        "reason": {
+          "fall_evidence": 0.778,
+          "time_down": 0.389,
+          "inactivity": 0.889,
+          "no_recovery": 0.881
+        }
+      },
+      {
+        "timestamp": 1786453732.1125429,
+        "state": "MONITORING",
+        "risk_score": 0.703,
+        "fall_score": 0.668,
+        "duration_down": 6.3,
+        "reason": {
+          "fall_evidence": 0.668,
+          "time_down": 0.422,
+          "inactivity": 0.886,
+          "no_recovery": 0.878
+        }
+      },
+      {
+        "timestamp": 1786453732.2400186,
+        "state": "MONITORING",
+        "risk_score": 0.702,
+        "fall_score": 0.657,
+        "duration_down": 6.5,
+        "reason": {
+          "fall_evidence": 0.657,
+          "time_down": 0.431,
+          "inactivity": 0.886,
+          "no_recovery": 0.878
+        }
+      },
+      {
+        "timestamp": 1786453732.3684072,
+        "state": "MONITORING",
+        "risk_score": 0.71,
+        "fall_score": 0.678,
+        "duration_down": 6.6,
+        "reason": {
+          "fall_evidence": 0.678,
+          "time_down": 0.439,
+          "inactivity": 0.886,
+          "no_recovery": 0.878
+        }
+      },
+      {
+        "timestamp": 1786453732.514991,
+        "state": "MONITORING",
+        "risk_score": 0.73,
+        "fall_score": 0.735,
+        "duration_down": 6.7,
+        "reason": {
+          "fall_evidence": 0.735,
+          "time_down": 0.449,
+          "inactivity": 0.886,
+          "no_recovery": 0.878
+        }
+      },
+      {
+        "timestamp": 1786453732.646157,
+        "state": "MONITORING",
+        "risk_score": 0.737,
+        "fall_score": 0.75,
+        "duration_down": 6.9,
+        "reason": {
+          "fall_evidence": 0.75,
+          "time_down": 0.458,
+          "inactivity": 0.886,
+          "no_recovery": 0.878
+        }
+      },
+      {
+        "timestamp": 1786453732.7837043,
+        "state": "MONITORING",
+        "risk_score": 0.744,
+        "fall_score": 0.763,
+        "duration_down": 7.0,
+        "reason": {
+          "fall_evidence": 0.763,
+          "time_down": 0.467,
+          "inactivity": 0.888,
+          "no_recovery": 0.881
+        }
+      },
+      {
+        "timestamp": 1786453732.9154541,
+        "state": "MONITORING",
+        "risk_score": 0.753,
+        "fall_score": 0.79,
+        "duration_down": 7.1,
+        "reason": {
+          "fall_evidence": 0.79,
+          "time_down": 0.476,
+          "inactivity": 0.885,
+          "no_recovery": 0.878
+        }
+      },
+      {
+        "timestamp": 1786453733.045898,
+        "state": "MONITORING",
+        "risk_score": 0.703,
+        "fall_score": 0.614,
+        "duration_down": 7.3,
+        "reason": {
+          "fall_evidence": 0.614,
+          "time_down": 0.485,
+          "inactivity": 0.887,
+          "no_recovery": 0.88
+        }
+      },
+      {
+        "timestamp": 1786453733.5840328,
+        "state": "MONITORING",
+        "risk_score": 0.719,
+        "fall_score": 0.631,
+        "duration_down": 7.8,
+        "reason": {
+          "fall_evidence": 0.631,
+          "time_down": 0.52,
+          "inactivity": 0.891,
+          "no_recovery": 0.883
+        }
+      },
+      {
+        "timestamp": 1786453733.7269242,
+        "state": "MONITORING",
+        "risk_score": 0.715,
+        "fall_score": 0.612,
+        "duration_down": 8.0,
+        "reason": {
+          "fall_evidence": 0.612,
+          "time_down": 0.53,
+          "inactivity": 0.891,
+          "no_recovery": 0.883
+        }
+      },
+      {
+        "timestamp": 1786453733.8659115,
+        "state": "MONITORING",
+        "risk_score": 0.656,
+        "fall_score": 0.403,
+        "duration_down": 8.1,
+        "reason": {
+          "fall_evidence": 0.403,
+          "time_down": 0.539,
+          "inactivity": 0.892,
+          "no_recovery": 0.885
+        }
+      },
+      {
+        "timestamp": 1786453734.0020833,
+        "state": "MONITORING",
+        "risk_score": 0.659,
+        "fall_score": 0.403,
+        "duration_down": 8.2,
+        "reason": {
+          "fall_evidence": 0.403,
+          "time_down": 0.548,
+          "inactivity": 0.894,
+          "no_recovery": 0.887
+        }
+      },
+      {
+        "timestamp": 1786453734.1337106,
+        "state": "MONITORING",
+        "risk_score": 0.659,
+        "fall_score": 0.388,
+        "duration_down": 8.4,
+        "reason": {
+          "fall_evidence": 0.388,
+          "time_down": 0.557,
+          "inactivity": 0.9,
+          "no_recovery": 0.893
+        }
+      },
+      {
+        "timestamp": 1786453734.2915812,
+        "state": "MONITORING",
+        "risk_score": 0.656,
+        "fall_score": 0.372,
+        "duration_down": 8.5,
+        "reason": {
+          "fall_evidence": 0.372,
+          "time_down": 0.568,
+          "inactivity": 0.897,
+          "no_recovery": 0.89
+        }
+      },
+      {
+        "timestamp": 1786453734.4354467,
+        "state": "MONITORING",
+        "risk_score": 0.653,
+        "fall_score": 0.357,
+        "duration_down": 8.7,
+        "reason": {
+          "fall_evidence": 0.357,
+          "time_down": 0.577,
+          "inactivity": 0.896,
+          "no_recovery": 0.889
+        }
+      },
+      {
+        "timestamp": 1786453734.5652447,
+        "state": "MONITORING",
+        "risk_score": 0.652,
+        "fall_score": 0.342,
+        "duration_down": 8.8,
+        "reason": {
+          "fall_evidence": 0.342,
+          "time_down": 0.586,
+          "inactivity": 0.899,
+          "no_recovery": 0.892
+        }
+      },
+      {
+        "timestamp": 1786453734.7012053,
+        "state": "MONITORING",
+        "risk_score": 0.651,
+        "fall_score": 0.33,
+        "duration_down": 8.9,
+        "reason": {
+          "fall_evidence": 0.33,
+          "time_down": 0.595,
+          "inactivity": 0.899,
+          "no_recovery": 0.892
+        }
+      },
+      {
+        "timestamp": 1786453734.838738,
+        "state": "MONITORING",
+        "risk_score": 0.647,
+        "fall_score": 0.313,
+        "duration_down": 9.1,
+        "reason": {
+          "fall_evidence": 0.313,
+          "time_down": 0.604,
+          "inactivity": 0.896,
+          "no_recovery": 0.889
+        }
+      },
+      {
+        "timestamp": 1786453735.0189831,
+        "state": "MONITORING",
+        "risk_score": 0.736,
+        "fall_score": 0.562,
+        "duration_down": 9.2,
+        "reason": {
+          "fall_evidence": 0.562,
+          "time_down": 0.616,
+          "inactivity": 0.921,
+          "no_recovery": 0.915
+        }
+      },
+      {
+        "timestamp": 1786453735.1439068,
+        "state": "MONITORING",
+        "risk_score": 0.738,
+        "fall_score": 0.547,
+        "duration_down": 9.4,
+        "reason": {
+          "fall_evidence": 0.547,
+          "time_down": 0.625,
+          "inactivity": 0.931,
+          "no_recovery": 0.926
+        }
+      },
+      {
+        "timestamp": 1786453735.2790105,
+        "state": "MONITORING",
+        "risk_score": 0.738,
+        "fall_score": 0.529,
+        "duration_down": 9.5,
+        "reason": {
+          "fall_evidence": 0.529,
+          "time_down": 0.634,
+          "inactivity": 0.937,
+          "no_recovery": 0.933
+        }
+      },
+      {
+        "timestamp": 1786453735.4095519,
+        "state": "MONITORING",
+        "risk_score": 0.74,
+        "fall_score": 0.529,
+        "duration_down": 9.6,
+        "reason": {
+          "fall_evidence": 0.529,
+          "time_down": 0.642,
+          "inactivity": 0.937,
+          "no_recovery": 0.933
+        }
+      },
+      {
+        "timestamp": 1786453735.5394397,
+        "state": "MONITORING",
+        "risk_score": 0.799,
+        "fall_score": 0.752,
+        "duration_down": 9.8,
+        "reason": {
+          "fall_evidence": 0.752,
+          "time_down": 0.651,
+          "inactivity": 0.915,
+          "no_recovery": 0.91
+        }
+      },
+      {
+        "timestamp": 1786453735.6724696,
+        "state": "MONITORING",
+        "risk_score": 0.807,
+        "fall_score": 0.776,
+        "duration_down": 9.9,
+        "reason": {
+          "fall_evidence": 0.776,
+          "time_down": 0.66,
+          "inactivity": 0.911,
+          "no_recovery": 0.905
+        }
+      },
+      {
+        "timestamp": 1786453736.230769,
+        "state": "MONITORING",
+        "risk_score": 0.785,
+        "fall_score": 0.678,
+        "duration_down": 10.5,
+        "reason": {
+          "fall_evidence": 0.678,
+          "time_down": 0.697,
+          "inactivity": 0.908,
+          "no_recovery": 0.902
+        }
+      },
+      {
+        "timestamp": 1786453736.3695893,
+        "state": "MONITORING",
+        "risk_score": 0.793,
+        "fall_score": 0.695,
+        "duration_down": 10.6,
+        "reason": {
+          "fall_evidence": 0.695,
+          "time_down": 0.706,
+          "inactivity": 0.909,
+          "no_recovery": 0.903
+        }
+      },
+      {
+        "timestamp": 1786453736.5187771,
+        "state": "MONITORING",
+        "risk_score": 0.801,
+        "fall_score": 0.708,
+        "duration_down": 10.7,
+        "reason": {
+          "fall_evidence": 0.708,
+          "time_down": 0.716,
+          "inactivity": 0.912,
+          "no_recovery": 0.906
+        }
+      },
+      {
+        "timestamp": 1786453736.672823,
+        "state": "MONITORING",
+        "risk_score": 0.808,
+        "fall_score": 0.722,
+        "duration_down": 10.9,
+        "reason": {
+          "fall_evidence": 0.722,
+          "time_down": 0.726,
+          "inactivity": 0.914,
+          "no_recovery": 0.908
+        }
+      },
+      {
+        "timestamp": 1786453736.8254156,
+        "state": "MONITORING",
+        "risk_score": 0.818,
+        "fall_score": 0.737,
+        "duration_down": 11.0,
+        "reason": {
+          "fall_evidence": 0.737,
+          "time_down": 0.737,
+          "inactivity": 0.92,
+          "no_recovery": 0.914
+        }
+      },
+      {
+        "timestamp": 1786453736.9683766,
+        "state": "MONITORING",
+        "risk_score": 0.826,
+        "fall_score": 0.757,
+        "duration_down": 11.2,
+        "reason": {
+          "fall_evidence": 0.757,
+          "time_down": 0.746,
+          "inactivity": 0.92,
+          "no_recovery": 0.914
+        }
+      },
+      {
+        "timestamp": 1786453737.2368746,
+        "state": "MONITORING",
+        "risk_score": 0.834,
+        "fall_score": 0.77,
+        "duration_down": 11.5,
+        "reason": {
+          "fall_evidence": 0.77,
+          "time_down": 0.764,
+          "inactivity": 0.917,
+          "no_recovery": 0.912
+        }
+      },
+      {
+        "timestamp": 1786453737.882558,
+        "state": "MONITORING",
+        "risk_score": 0.791,
+        "fall_score": 0.611,
+        "duration_down": 12.1,
+        "reason": {
+          "fall_evidence": 0.611,
+          "time_down": 0.807,
+          "inactivity": 0.905,
+          "no_recovery": 0.898
+        }
+      },
+      {
+        "timestamp": 1786453738.0170817,
+        "state": "MONITORING",
+        "risk_score": 0.723,
+        "fall_score": 0.385,
+        "duration_down": 12.2,
+        "reason": {
+          "fall_evidence": 0.385,
+          "time_down": 0.816,
+          "inactivity": 0.9,
+          "no_recovery": 0.894
+        }
+      },
+      {
+        "timestamp": 1786453738.1557941,
+        "state": "POSSIBLE_EMERGENCY",
+        "risk_score": 0.726,
+        "fall_score": 0.385,
+        "duration_down": 12.4,
+        "reason": {
+          "fall_evidence": 0.385,
+          "time_down": 0.825,
+          "inactivity": 0.9,
+          "no_recovery": 0.894
+        }
+      },
+      {
+        "timestamp": 1786453738.6774008,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.733,
+        "fall_score": 0.383,
+        "duration_down": 12.9,
+        "reason": {
+          "fall_evidence": 0.383,
+          "time_down": 0.86,
+          "inactivity": 0.898,
+          "no_recovery": 0.892
+        }
+      },
+      {
+        "timestamp": 1786453738.8327422,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.734,
+        "fall_score": 0.383,
+        "duration_down": 13.1,
+        "reason": {
+          "fall_evidence": 0.383,
+          "time_down": 0.87,
+          "inactivity": 0.895,
+          "no_recovery": 0.888
+        }
+      },
+      {
+        "timestamp": 1786453738.9710789,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.732,
+        "fall_score": 0.368,
+        "duration_down": 13.2,
+        "reason": {
+          "fall_evidence": 0.368,
+          "time_down": 0.88,
+          "inactivity": 0.895,
+          "no_recovery": 0.888
+        }
+      },
+      {
+        "timestamp": 1786453739.1148522,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.729,
+        "fall_score": 0.351,
+        "duration_down": 13.3,
+        "reason": {
+          "fall_evidence": 0.351,
+          "time_down": 0.889,
+          "inactivity": 0.895,
+          "no_recovery": 0.888
+        }
+      },
+      {
+        "timestamp": 1786453739.252325,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.728,
+        "fall_score": 0.338,
+        "duration_down": 13.5,
+        "reason": {
+          "fall_evidence": 0.338,
+          "time_down": 0.898,
+          "inactivity": 0.895,
+          "no_recovery": 0.888
+        }
+      },
+      {
+        "timestamp": 1786453739.393131,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.725,
+        "fall_score": 0.328,
+        "duration_down": 13.6,
+        "reason": {
+          "fall_evidence": 0.328,
+          "time_down": 0.908,
+          "inactivity": 0.892,
+          "no_recovery": 0.885
+        }
+      },
+      {
+        "timestamp": 1786453739.5693483,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.802,
+        "fall_score": 0.573,
+        "duration_down": 13.8,
+        "reason": {
+          "fall_evidence": 0.573,
+          "time_down": 0.92,
+          "inactivity": 0.892,
+          "no_recovery": 0.885
+        }
+      },
+      {
+        "timestamp": 1786453739.7233648,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.856,
+        "fall_score": 0.784,
+        "duration_down": 13.9,
+        "reason": {
+          "fall_evidence": 0.784,
+          "time_down": 0.93,
+          "inactivity": 0.867,
+          "no_recovery": 0.858
+        }
+      },
+      {
+        "timestamp": 1786453739.8753436,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.841,
+        "fall_score": 0.699,
+        "duration_down": 14.1,
+        "reason": {
+          "fall_evidence": 0.699,
+          "time_down": 0.94,
+          "inactivity": 0.883,
+          "no_recovery": 0.876
+        }
+      },
+      {
+        "timestamp": 1786453740.1636918,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.834,
+        "fall_score": 0.658,
+        "duration_down": 14.4,
+        "reason": {
+          "fall_evidence": 0.658,
+          "time_down": 0.959,
+          "inactivity": 0.886,
+          "no_recovery": 0.878
+        }
+      },
+      {
+        "timestamp": 1786453740.305828,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.844,
+        "fall_score": 0.674,
+        "duration_down": 14.5,
+        "reason": {
+          "fall_evidence": 0.674,
+          "time_down": 0.969,
+          "inactivity": 0.892,
+          "no_recovery": 0.885
+        }
+      },
+      {
+        "timestamp": 1786453740.44406,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.863,
+        "fall_score": 0.727,
+        "duration_down": 14.7,
+        "reason": {
+          "fall_evidence": 0.727,
+          "time_down": 0.978,
+          "inactivity": 0.892,
+          "no_recovery": 0.885
+        }
+      },
+      {
+        "timestamp": 1786453740.5793934,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.869,
+        "fall_score": 0.744,
+        "duration_down": 14.8,
+        "reason": {
+          "fall_evidence": 0.744,
+          "time_down": 0.987,
+          "inactivity": 0.891,
+          "no_recovery": 0.884
+        }
+      },
+      {
+        "timestamp": 1786453740.7112522,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.876,
+        "fall_score": 0.76,
+        "duration_down": 14.9,
+        "reason": {
+          "fall_evidence": 0.76,
+          "time_down": 0.996,
+          "inactivity": 0.89,
+          "no_recovery": 0.882
+        }
+      },
+      {
+        "timestamp": 1786453741.013753,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.876,
+        "fall_score": 0.76,
+        "duration_down": 15.2,
+        "reason": {
+          "fall_evidence": 0.76,
+          "time_down": 1.0,
+          "inactivity": 0.888,
+          "no_recovery": 0.881
+        }
+      },
+      {
+        "timestamp": 1786453741.1638618,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.885,
+        "fall_score": 0.788,
+        "duration_down": 15.4,
+        "reason": {
+          "fall_evidence": 0.788,
+          "time_down": 1.0,
+          "inactivity": 0.888,
+          "no_recovery": 0.881
+        }
+      },
+      {
+        "timestamp": 1786453742.074679,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.813,
+        "fall_score": 0.568,
+        "duration_down": 16.3,
+        "reason": {
+          "fall_evidence": 0.568,
+          "time_down": 1.0,
+          "inactivity": 0.876,
+          "no_recovery": 0.868
+        }
+      },
+      {
+        "timestamp": 1786453742.346141,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.758,
+        "fall_score": 0.368,
+        "duration_down": 16.6,
+        "reason": {
+          "fall_evidence": 0.368,
+          "time_down": 1.0,
+          "inactivity": 0.888,
+          "no_recovery": 0.88
+        }
+      },
+      {
+        "timestamp": 1786453743.3646793,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.756,
+        "fall_score": 0.364,
+        "duration_down": 17.6,
+        "reason": {
+          "fall_evidence": 0.364,
+          "time_down": 1.0,
+          "inactivity": 0.885,
+          "no_recovery": 0.877
+        }
+      },
+      {
+        "timestamp": 1786453743.501155,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.758,
+        "fall_score": 0.366,
+        "duration_down": 17.7,
+        "reason": {
+          "fall_evidence": 0.366,
+          "time_down": 1.0,
+          "inactivity": 0.888,
+          "no_recovery": 0.881
+        }
+      },
+      {
+        "timestamp": 1786453743.637013,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.761,
+        "fall_score": 0.368,
+        "duration_down": 17.9,
+        "reason": {
+          "fall_evidence": 0.368,
+          "time_down": 1.0,
+          "inactivity": 0.894,
+          "no_recovery": 0.887
+        }
+      },
+      {
+        "timestamp": 1786453743.8048978,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.759,
+        "fall_score": 0.354,
+        "duration_down": 18.0,
+        "reason": {
+          "fall_evidence": 0.354,
+          "time_down": 1.0,
+          "inactivity": 0.898,
+          "no_recovery": 0.891
+        }
+      },
+      {
+        "timestamp": 1786453743.9407141,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.752,
+        "fall_score": 0.338,
+        "duration_down": 18.2,
+        "reason": {
+          "fall_evidence": 0.338,
+          "time_down": 1.0,
+          "inactivity": 0.894,
+          "no_recovery": 0.887
+        }
+      },
+      {
+        "timestamp": 1786453744.0959415,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.747,
+        "fall_score": 0.321,
+        "duration_down": 18.3,
+        "reason": {
+          "fall_evidence": 0.321,
+          "time_down": 1.0,
+          "inactivity": 0.894,
+          "no_recovery": 0.887
+        }
+      },
+      {
+        "timestamp": 1786453744.2265968,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.745,
+        "fall_score": 0.314,
+        "duration_down": 18.5,
+        "reason": {
+          "fall_evidence": 0.314,
+          "time_down": 1.0,
+          "inactivity": 0.894,
+          "no_recovery": 0.887
+        }
+      },
+      {
+        "timestamp": 1786453744.360895,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.873,
+        "fall_score": 0.773,
+        "duration_down": 18.6,
+        "reason": {
+          "fall_evidence": 0.773,
+          "time_down": 1.0,
+          "inactivity": 0.872,
+          "no_recovery": 0.864
+        }
+      },
+      {
+        "timestamp": 1786453744.5033755,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.868,
+        "fall_score": 0.766,
+        "duration_down": 18.7,
+        "reason": {
+          "fall_evidence": 0.766,
+          "time_down": 1.0,
+          "inactivity": 0.866,
+          "no_recovery": 0.857
+        }
+      },
+      {
+        "timestamp": 1786453744.8853314,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.832,
+        "fall_score": 0.619,
+        "duration_down": 19.1,
+        "reason": {
+          "fall_evidence": 0.619,
+          "time_down": 1.0,
+          "inactivity": 0.884,
+          "no_recovery": 0.876
+        }
+      },
+      {
+        "timestamp": 1786453745.0182738,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.841,
+        "fall_score": 0.641,
+        "duration_down": 19.2,
+        "reason": {
+          "fall_evidence": 0.641,
+          "time_down": 1.0,
+          "inactivity": 0.89,
+          "no_recovery": 0.882
+        }
+      },
+      {
+        "timestamp": 1786453745.1583443,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.867,
+        "fall_score": 0.722,
+        "duration_down": 19.4,
+        "reason": {
+          "fall_evidence": 0.722,
+          "time_down": 1.0,
+          "inactivity": 0.893,
+          "no_recovery": 0.886
+        }
+      },
+      {
+        "timestamp": 1786453745.4298255,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.866,
+        "fall_score": 0.725,
+        "duration_down": 19.7,
+        "reason": {
+          "fall_evidence": 0.725,
+          "time_down": 1.0,
+          "inactivity": 0.89,
+          "no_recovery": 0.882
+        }
+      },
+      {
+        "timestamp": 1786453745.5826824,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.873,
+        "fall_score": 0.741,
+        "duration_down": 19.8,
+        "reason": {
+          "fall_evidence": 0.741,
+          "time_down": 1.0,
+          "inactivity": 0.893,
+          "no_recovery": 0.886
+        }
+      },
+      {
+        "timestamp": 1786453745.7374628,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.877,
+        "fall_score": 0.757,
+        "duration_down": 20.0,
+        "reason": {
+          "fall_evidence": 0.757,
+          "time_down": 1.0,
+          "inactivity": 0.893,
+          "no_recovery": 0.886
+        }
+      },
+      {
+        "timestamp": 1786453745.8959646,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.883,
+        "fall_score": 0.781,
+        "duration_down": 20.1,
+        "reason": {
+          "fall_evidence": 0.781,
+          "time_down": 1.0,
+          "inactivity": 0.89,
+          "no_recovery": 0.883
+        }
+      },
+      {
+        "timestamp": 1786453746.0444868,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.834,
+        "fall_score": 0.616,
+        "duration_down": 20.3,
+        "reason": {
+          "fall_evidence": 0.616,
+          "time_down": 1.0,
+          "inactivity": 0.891,
+          "no_recovery": 0.884
+        }
+      },
+      {
+        "timestamp": 1786453746.740245,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.792,
+        "fall_score": 0.495,
+        "duration_down": 21.0,
+        "reason": {
+          "fall_evidence": 0.495,
+          "time_down": 1.0,
+          "inactivity": 0.879,
+          "no_recovery": 0.87
+        }
+      },
+      {
+        "timestamp": 1786453747.0117693,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.775,
+        "fall_score": 0.418,
+        "duration_down": 21.2,
+        "reason": {
+          "fall_evidence": 0.418,
+          "time_down": 1.0,
+          "inactivity": 0.891,
+          "no_recovery": 0.883
+        }
+      },
+      {
+        "timestamp": 1786453747.2806067,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.764,
+        "fall_score": 0.383,
+        "duration_down": 21.5,
+        "reason": {
+          "fall_evidence": 0.383,
+          "time_down": 1.0,
+          "inactivity": 0.891,
+          "no_recovery": 0.883
+        }
+      },
+      {
+        "timestamp": 1786453747.4197507,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.768,
+        "fall_score": 0.385,
+        "duration_down": 21.6,
+        "reason": {
+          "fall_evidence": 0.385,
+          "time_down": 1.0,
+          "inactivity": 0.898,
+          "no_recovery": 0.891
+        }
+      },
+      {
+        "timestamp": 1786453747.5631535,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.761,
+        "fall_score": 0.367,
+        "duration_down": 21.8,
+        "reason": {
+          "fall_evidence": 0.367,
+          "time_down": 1.0,
+          "inactivity": 0.894,
+          "no_recovery": 0.887
+        }
+      },
+      {
+        "timestamp": 1786453747.701678,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.755,
+        "fall_score": 0.351,
+        "duration_down": 21.9,
+        "reason": {
+          "fall_evidence": 0.351,
+          "time_down": 1.0,
+          "inactivity": 0.891,
+          "no_recovery": 0.884
+        }
+      },
+      {
+        "timestamp": 1786453747.837371,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.76,
+        "fall_score": 0.376,
+        "duration_down": 22.1,
+        "reason": {
+          "fall_evidence": 0.376,
+          "time_down": 1.0,
+          "inactivity": 0.887,
+          "no_recovery": 0.879
+        }
+      },
+      {
+        "timestamp": 1786453747.976163,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.753,
+        "fall_score": 0.346,
+        "duration_down": 22.2,
+        "reason": {
+          "fall_evidence": 0.346,
+          "time_down": 1.0,
+          "inactivity": 0.89,
+          "no_recovery": 0.883
+        }
+      },
+      {
+        "timestamp": 1786453748.1157095,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.828,
+        "fall_score": 0.591,
+        "duration_down": 22.3,
+        "reason": {
+          "fall_evidence": 0.591,
+          "time_down": 1.0,
+          "inactivity": 0.893,
+          "no_recovery": 0.886
+        }
+      },
+      {
+        "timestamp": 1786453748.2611916,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.816,
+        "fall_score": 0.555,
+        "duration_down": 22.5,
+        "reason": {
+          "fall_evidence": 0.555,
+          "time_down": 1.0,
+          "inactivity": 0.89,
+          "no_recovery": 0.883
+        }
+      },
+      {
+        "timestamp": 1786453748.4019227,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.823,
+        "fall_score": 0.54,
+        "duration_down": 22.6,
+        "reason": {
+          "fall_evidence": 0.54,
+          "time_down": 1.0,
+          "inactivity": 0.915,
+          "no_recovery": 0.91
+        }
+      },
+      {
+        "timestamp": 1786453748.5419466,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.853,
+        "fall_score": 0.668,
+        "duration_down": 22.8,
+        "reason": {
+          "fall_evidence": 0.668,
+          "time_down": 1.0,
+          "inactivity": 0.897,
+          "no_recovery": 0.89
+        }
+      },
+      {
+        "timestamp": 1786453748.7314215,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.818,
+        "fall_score": 0.549,
+        "duration_down": 23.0,
+        "reason": {
+          "fall_evidence": 0.549,
+          "time_down": 1.0,
+          "inactivity": 0.9,
+          "no_recovery": 0.893
+        }
+      },
+      {
+        "timestamp": 1786453749.2523365,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.857,
+        "fall_score": 0.69,
+        "duration_down": 23.5,
+        "reason": {
+          "fall_evidence": 0.69,
+          "time_down": 1.0,
+          "inactivity": 0.893,
+          "no_recovery": 0.886
+        }
+      },
+      {
+        "timestamp": 1786453749.8927925,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.848,
+        "fall_score": 0.667,
+        "duration_down": 24.1,
+        "reason": {
+          "fall_evidence": 0.667,
+          "time_down": 1.0,
+          "inactivity": 0.887,
+          "no_recovery": 0.88
+        }
+      },
+      {
+        "timestamp": 1786453750.0309215,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.852,
+        "fall_score": 0.682,
+        "duration_down": 24.3,
+        "reason": {
+          "fall_evidence": 0.682,
+          "time_down": 1.0,
+          "inactivity": 0.887,
+          "no_recovery": 0.88
+        }
+      },
+      {
+        "timestamp": 1786453750.1696684,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.854,
+        "fall_score": 0.696,
+        "duration_down": 24.4,
+        "reason": {
+          "fall_evidence": 0.696,
+          "time_down": 1.0,
+          "inactivity": 0.881,
+          "no_recovery": 0.873
+        }
+      },
+      {
+        "timestamp": 1786453750.8309789,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.846,
+        "fall_score": 0.682,
+        "duration_down": 25.1,
+        "reason": {
+          "fall_evidence": 0.682,
+          "time_down": 1.0,
+          "inactivity": 0.873,
+          "no_recovery": 0.864
+        }
+      },
+      {
+        "timestamp": 1786453750.9824018,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.778,
+        "fall_score": 0.457,
+        "duration_down": 25.2,
+        "reason": {
+          "fall_evidence": 0.457,
+          "time_down": 1.0,
+          "inactivity": 0.873,
+          "no_recovery": 0.865
+        }
+      },
+      {
+        "timestamp": 1786453751.1242838,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.784,
+        "fall_score": 0.476,
+        "duration_down": 25.3,
+        "reason": {
+          "fall_evidence": 0.476,
+          "time_down": 1.0,
+          "inactivity": 0.873,
+          "no_recovery": 0.865
+        }
+      },
+      {
+        "timestamp": 1786453751.266866,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.793,
+        "fall_score": 0.486,
+        "duration_down": 25.5,
+        "reason": {
+          "fall_evidence": 0.486,
+          "time_down": 1.0,
+          "inactivity": 0.886,
+          "no_recovery": 0.879
+        }
+      },
+      {
+        "timestamp": 1786453752.0565772,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.751,
+        "fall_score": 0.347,
+        "duration_down": 26.3,
+        "reason": {
+          "fall_evidence": 0.347,
+          "time_down": 1.0,
+          "inactivity": 0.886,
+          "no_recovery": 0.879
+        }
+      },
+      {
+        "timestamp": 1786453752.206793,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.753,
+        "fall_score": 0.35,
+        "duration_down": 26.4,
+        "reason": {
+          "fall_evidence": 0.35,
+          "time_down": 1.0,
+          "inactivity": 0.887,
+          "no_recovery": 0.88
+        }
+      },
+      {
+        "timestamp": 1786453752.5970483,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.777,
+        "fall_score": 0.495,
+        "duration_down": 26.8,
+        "reason": {
+          "fall_evidence": 0.495,
+          "time_down": 1.0,
+          "inactivity": 0.847,
+          "no_recovery": 0.837
+        }
+      },
+      {
+        "timestamp": 1786453752.7440035,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.795,
+        "fall_score": 0.558,
+        "duration_down": 27.0,
+        "reason": {
+          "fall_evidence": 0.558,
+          "time_down": 1.0,
+          "inactivity": 0.843,
+          "no_recovery": 0.832
+        }
+      },
+      {
+        "timestamp": 1786453753.3008726,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.794,
+        "fall_score": 0.561,
+        "duration_down": 27.5,
+        "reason": {
+          "fall_evidence": 0.561,
+          "time_down": 1.0,
+          "inactivity": 0.839,
+          "no_recovery": 0.828
+        }
+      },
+      {
+        "timestamp": 1786453753.4384525,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.839,
+        "fall_score": 0.71,
+        "duration_down": 27.7,
+        "reason": {
+          "fall_evidence": 0.71,
+          "time_down": 1.0,
+          "inactivity": 0.84,
+          "no_recovery": 0.83
+        }
+      },
+      {
+        "timestamp": 1786453753.5710938,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.835,
+        "fall_score": 0.702,
+        "duration_down": 27.8,
+        "reason": {
+          "fall_evidence": 0.702,
+          "time_down": 1.0,
+          "inactivity": 0.837,
+          "no_recovery": 0.826
+        }
+      },
+      {
+        "timestamp": 1786453753.7175584,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.831,
+        "fall_score": 0.694,
+        "duration_down": 27.9,
+        "reason": {
+          "fall_evidence": 0.694,
+          "time_down": 1.0,
+          "inactivity": 0.833,
+          "no_recovery": 0.822
+        }
+      },
+      {
+        "timestamp": 1786453753.854146,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.83,
+        "fall_score": 0.69,
+        "duration_down": 28.1,
+        "reason": {
+          "fall_evidence": 0.69,
+          "time_down": 1.0,
+          "inactivity": 0.833,
+          "no_recovery": 0.822
+        }
+      },
+      {
+        "timestamp": 1786453753.9968097,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.832,
+        "fall_score": 0.706,
+        "duration_down": 28.2,
+        "reason": {
+          "fall_evidence": 0.706,
+          "time_down": 1.0,
+          "inactivity": 0.828,
+          "no_recovery": 0.817
+        }
+      },
+      {
+        "timestamp": 1786453754.1342905,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.854,
+        "fall_score": 0.741,
+        "duration_down": 28.4,
+        "reason": {
+          "fall_evidence": 0.741,
+          "time_down": 1.0,
+          "inactivity": 0.853,
+          "no_recovery": 0.844
+        }
+      },
+      {
+        "timestamp": 1786453754.7767272,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.814,
+        "fall_score": 0.626,
+        "duration_down": 29.0,
+        "reason": {
+          "fall_evidence": 0.626,
+          "time_down": 1.0,
+          "inactivity": 0.842,
+          "no_recovery": 0.831
+        }
+      },
+      {
+        "timestamp": 1786453755.031137,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.749,
+        "fall_score": 0.4,
+        "duration_down": 29.3,
+        "reason": {
+          "fall_evidence": 0.4,
+          "time_down": 1.0,
+          "inactivity": 0.847,
+          "no_recovery": 0.837
+        }
+      },
+      {
+        "timestamp": 1786453755.1692038,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.759,
+        "fall_score": 0.425,
+        "duration_down": 29.4,
+        "reason": {
+          "fall_evidence": 0.425,
+          "time_down": 1.0,
+          "inactivity": 0.852,
+          "no_recovery": 0.842
+        }
+      },
+      {
+        "timestamp": 1786453755.432947,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.751,
+        "fall_score": 0.4,
+        "duration_down": 29.7,
+        "reason": {
+          "fall_evidence": 0.4,
+          "time_down": 1.0,
+          "inactivity": 0.852,
+          "no_recovery": 0.842
+        }
+      },
+      {
+        "timestamp": 1786453755.6919513,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.75,
+        "fall_score": 0.385,
+        "duration_down": 29.9,
+        "reason": {
+          "fall_evidence": 0.385,
+          "time_down": 1.0,
+          "inactivity": 0.858,
+          "no_recovery": 0.848
+        }
+      },
+      {
+        "timestamp": 1786453755.8449087,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.751,
+        "fall_score": 0.37,
+        "duration_down": 30.1,
+        "reason": {
+          "fall_evidence": 0.37,
+          "time_down": 1.0,
+          "inactivity": 0.871,
+          "no_recovery": 0.862
+        }
+      },
+      {
+        "timestamp": 1786453755.9922419,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.75,
+        "fall_score": 0.356,
+        "duration_down": 30.2,
+        "reason": {
+          "fall_evidence": 0.356,
+          "time_down": 1.0,
+          "inactivity": 0.877,
+          "no_recovery": 0.869
+        }
+      },
+      {
+        "timestamp": 1786453756.1238587,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.75,
+        "fall_score": 0.353,
+        "duration_down": 30.3,
+        "reason": {
+          "fall_evidence": 0.353,
+          "time_down": 1.0,
+          "inactivity": 0.88,
+          "no_recovery": 0.872
+        }
+      },
+      {
+        "timestamp": 1786453756.2688162,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.747,
+        "fall_score": 0.341,
+        "duration_down": 30.5,
+        "reason": {
+          "fall_evidence": 0.341,
+          "time_down": 1.0,
+          "inactivity": 0.88,
+          "no_recovery": 0.872
+        }
+      },
+      {
+        "timestamp": 1786453756.411105,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.827,
+        "fall_score": 0.597,
+        "duration_down": 30.6,
+        "reason": {
+          "fall_evidence": 0.597,
+          "time_down": 1.0,
+          "inactivity": 0.887,
+          "no_recovery": 0.879
+        }
+      },
+      {
+        "timestamp": 1786453756.563357,
+        "state": "POTENTIAL_HEALTH_EMERGENCY",
+        "risk_score": 0.817,
+        "fall_score": 0.56,
+        "duration_down": 30.8,
+        "reason": {
+          "fall_evidence": 0.56,
+          "time_down": 1.0,
+          "inactivity": 0.89,
+          "no_recovery": 0.883
+        }
+      }
+    ],
+    "final_state": "POTENTIAL_HEALTH_EMERGENCY",
+    "peak_risk_score": 0.885
+  }
+]

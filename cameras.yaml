@@ -1,0 +1,32 @@
+# Camera Registry
+# Each camera must have a unique camera_id.
+# Associate a source (video file, webcam index, or RTSP URL) with each camera.
+# Coordinates are placeholder values — replace with real values before deployment.
+
+cameras:
+  - camera_id: CAM-001
+    name: Main Entrance
+    source: videos/test.mp4        # video | webcam:0 | rtsp://...
+    location:
+      latitude: 27.12345           # PLACEHOLDER — replace with real coordinates
+      longitude: 78.12345          # PLACEHOLDER — replace with real coordinates
+      address: "Main Entrance, Building A"
+      zone: "Entrance"
+
+  - camera_id: CAM-002
+    name: Corridor North
+    source: videos/test1.mp4
+    location:
+      latitude: 27.12350           # PLACEHOLDER
+      longitude: 78.12360          # PLACEHOLDER
+      address: "Corridor North, Building A"
+      zone: "Corridor"
+
+  - camera_id: CAM-TEST-001
+    name: Test Camera
+    source: videos/test.mp4
+    location:
+      latitude: 0.0                # PLACEHOLDER
+      longitude: 0.0               # PLACEHOLDER
+      address: "Test Location"
+      zone: "Test"

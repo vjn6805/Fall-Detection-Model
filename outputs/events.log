@@ -1,0 +1,25 @@
+2026-08-10 17:02:39 Person#1 NORMAL -> POSSIBLE_FALL | fall=0.62 posture=0.65 transition=1.00 persistence=0.08 motion=0.54 pose_q=0.79
+2026-08-10 17:02:42 Person#11 NORMAL -> POSSIBLE_FALL | fall=0.84 posture=1.00 transition=1.00 persistence=0.33 motion=0.81 pose_q=0.75
+2026-08-10 17:02:44 Person#11 POSSIBLE_FALL -> FALL_CONFIRMED | fall=0.98 posture=1.00 transition=1.00 persistence=0.92 motion=0.96 pose_q=0.67
+2026-08-10 17:02:44 Person#11 FALL_CONFIRMED -> POST_FALL_MONITORING | fall=0.98 posture=1.00 transition=1.00 persistence=0.92 motion=0.97 pose_q=0.65
+2026-08-10 17:09:59 Person#1 NORMAL -> POSSIBLE_FALL | fall=0.62 posture=0.65 transition=1.00 persistence=0.08 motion=0.54 pose_q=0.79
+2026-08-10 17:10:02 Person#11 NORMAL -> POSSIBLE_FALL | fall=0.84 posture=1.00 transition=1.00 persistence=0.33 motion=0.81 pose_q=0.75
+2026-08-10 17:10:04 Person#11 POSSIBLE_FALL -> FALL_CONFIRMED | fall=0.98 posture=1.00 transition=1.00 persistence=0.92 motion=0.97 pose_q=0.65
+2026-08-10 17:10:04 Person#11 RISK:NORMAL -> RISK:MONITORING | risk=0.00 fall_ev=0.00 time_dn=0.00 inact=0.00 no_rec=0.00
+2026-08-10 17:10:04 Person#11 FALL_CONFIRMED -> POST_FALL_MONITORING | fall=0.98 posture=1.00 transition=1.00 persistence=0.92 motion=0.97 pose_q=0.63
+2026-08-10 17:16:40 Person#1 NORMAL -> POSSIBLE_FALL | fall=0.62 posture=0.65 transition=1.00 persistence=0.08 motion=0.54 pose_q=0.79
+2026-08-10 17:16:43 Person#11 NORMAL -> POSSIBLE_FALL | fall=0.84 posture=1.00 transition=1.00 persistence=0.33 motion=0.81 pose_q=0.75
+2026-08-10 17:16:45 Person#11 POSSIBLE_FALL -> FALL_CONFIRMED | fall=0.98 posture=1.00 transition=1.00 persistence=0.92 motion=0.97 pose_q=0.65
+2026-08-10 17:16:45 Person#11 RISK:NORMAL -> RISK:MONITORING | risk=0.00 fall_ev=0.00 time_dn=0.00 inact=0.00 no_rec=0.00
+2026-08-10 17:16:45 Person#11 FALL_CONFIRMED -> POST_FALL_MONITORING | fall=0.98 posture=1.00 transition=1.00 persistence=0.92 motion=0.97 pose_q=0.63
+2026-08-11 18:26:52 Person#1 NORMAL -> UNKNOWN_LOW_POSTURE | fall=0.64 posture=0.65 transition=0.97 persist=0.25 motion=0.48 pose_q=0.75 obs=HIGH reason=low_posture_without_observed_fall
+2026-08-11 18:26:54 Person#11 NORMAL -> UNKNOWN_LOW_POSTURE | fall=0.39 posture=0.82 transition=0.00 persist=0.00 motion=0.66 pose_q=0.66 obs=HIGH reason=low_posture_without_observed_fall
+2026-08-11 18:38:28 Person#1 NORMAL -> UNKNOWN_LOW_POSTURE | fall=0.58 posture=0.65 transition=0.88 persist=0.42 motion=0.03 pose_q=0.74 obs=HIGH reason=low_posture_without_observed_fall
+2026-08-11 18:38:30 Person#2 NORMAL -> UNKNOWN_LOW_POSTURE | fall=0.17 posture=0.35 transition=0.00 persist=0.00 motion=0.31 pose_q=0.63 obs=HIGH reason=low_posture_without_observed_fall
+2026-08-11 18:38:32 Person#3 NORMAL -> UNKNOWN_LOW_POSTURE | fall=0.64 posture=1.00 transition=0.00 persist=0.75 motion=0.90 pose_q=0.67 obs=HIGH reason=low_posture_without_observed_fall
+2026-08-11 18:38:43 Person#3 UNKNOWN_LOW_POSTURE -> POSSIBLE_FALL | fall=0.77 posture=1.00 transition=0.80 persist=0.25 motion=0.84 pose_q=0.64 obs=HIGH reason=fall_transition_observed_from_unknown_state
+2026-08-11 18:38:45 Person#3 POSSIBLE_FALL -> FALL_CONFIRMED | fall=0.63 posture=1.00 transition=0.00 persist=0.75 motion=0.85 pose_q=0.57 obs=HIGH reason=fall_persisted_confirm_duration
+2026-08-11 18:38:45 Person#3 RISK:NORMAL -> RISK:MONITORING | risk=0.00 fall_ev=0.00 time_dn=0.00 inact=0.00 no_rec=0.00
+2026-08-11 18:38:45 Person#3 FALL_CONFIRMED -> POST_FALL_MONITORING | fall=0.61 posture=0.94 transition=0.00 persist=0.75 motion=0.86 pose_q=0.62 obs=HIGH reason=entering_post_fall_monitoring
+2026-08-11 18:38:58 Person#3 RISK:MONITORING -> RISK:POSSIBLE_EMERGENCY | risk=0.73 fall_ev=0.39 time_dn=0.82 inact=0.90 no_rec=0.89
+2026-08-11 18:38:58 Person#3 RISK:POSSIBLE_EMERGENCY -> RISK:POTENTIAL_HEALTH_EMERGENCY | risk=0.73 fall_ev=0.38 time_dn=0.86 inact=0.90 no_rec=0.89
