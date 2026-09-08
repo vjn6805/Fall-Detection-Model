@@ -11,12 +11,12 @@ model:
 
 tracking:
   tracker: bytetrack       # bytetrack | botsort
-  max_missing_frames: 10   # frames before track is dropped
+  max_missing_frames: 30   # frames before track is dropped — raised so fallen/fitting person keeps same ID
   pose_conf_threshold: 0.3 # below this = LOW QUALITY pose
 
 history:
   max_frames: 90           # rolling buffer length (~3s at 30fps)
-  expiry_seconds: 3.0      # drop history if track missing this long
+  expiry_seconds: 8.0      # raised: keeps history alive through brief detection gaps (fits, occlusion)
 
 display:
   show_fps: true
@@ -157,7 +157,12 @@ camera:
   registry: cameras.yaml     # path to camera registry
 
 evidence:
-  snapshot_dir: outputs/snapshots   # directory for incident snapshot images
+  enabled: true
+  pre_event_seconds: 10
+  post_event_seconds: 10
+  retention_days: 7
+  snapshot_dir: outputs/snapshots
+  video_dir: outputs/evidence
 
 incident:
   db_path: outputs/incidents.db     # SQLite database path

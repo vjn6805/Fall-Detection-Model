@@ -212,7 +212,12 @@ CREATE TABLE IF NOT EXISTS incidents (
     dismissed_at        TEXT,
     dismissed_by        TEXT,
     dismissal_reason    TEXT,
-    evidence_path       TEXT,
+    evidence_path       TEXT,   -- video clip file path
+    evidence_start_time TEXT,
+    evidence_end_time   TEXT,
+    evidence_duration   REAL,
+    evidence_status     TEXT DEFAULT 'PENDING',
+    snapshot_path       TEXT,
     resolved_at         TEXT
 );
 
@@ -252,11 +257,14 @@ class IncidentManager:
     for the single-writer (detection loop) + single-reader (dashboard) pattern.
     """
 
-    def __init__(self, db_path: str, camera_registry, snapshot_dir: str = "outputs/snapshots"):
+    def __init__(self, db_path: str, camera_registry, snapshot_dir: str = "outputs/snapshots", evidence_dir: str = "outputs/evidence"):
         self._db_path = db_path
         self._registry = camera_registry
         self._snapshot_dir = Path(snapshot_dir)
         self._snapshot_dir.mkdir(parents=True, exist_ok=True)
+        self._evidence_dir = Path(evidence_dir)
+        self._evidence_dir.mkdir(parents=True, exist_ok=True)
+        self._evidence_mgr = None
 
         Path(db_path).parent.mkdir(parents=True, exist_ok=True)
         self._conn = sqlite3.connect(db_path, check_same_thread=False)
@@ -265,11 +273,28 @@ class IncidentManager:
         self._conn.executescript(_SCHEMA)
         self._conn.commit()
 
+        # Schema migrations for existing databases
+        for col_name, col_type in [
+            ("evidence_start_time", "TEXT"),
+            ("evidence_end_time", "TEXT"),
+            ("evidence_duration", "REAL"),
+            ("evidence_status", "TEXT DEFAULT 'PENDING'"),
+            ("snapshot_path", "TEXT")
+        ]:
+            try:
+                self._conn.execute(f"ALTER TABLE incidents ADD COLUMN {col_name} {col_type}")
+                self._conn.commit()
+            except sqlite3.OperationalError:
+                pass
+
         self._sync_cameras()
 
         # In-memory dedup index: (camera_id, person_id, event_type) → incident_id
         self._active_key: dict[tuple, str] = {}
         self._load_active_keys()
+
+    def set_evidence_manager(self, evidence_mgr):
+        self._evidence_mgr = evidence_mgr
 
     # ------------------------------------------------------------------
     # Public API
@@ -454,8 +479,9 @@ class IncidentManager:
             (incident_id, camera_id, camera_name, camera_address, camera_zone,
              camera_lat, camera_lon, event_type, severity, person_id,
              fall_score, health_emergency_score, observation_quality,
-             duration_down, reasons, status, ai_state, created_at, updated_at, evidence_path)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+             duration_down, reasons, status, ai_state, created_at, updated_at,
+             snapshot_path, evidence_status)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
         """, (
             inc_id, camera_id,
             cam.get("name", camera_id),
@@ -473,6 +499,7 @@ class IncidentManager:
             risk_result.state.value,
             now, now,
             str(snap_path) if snap_path else None,
+            "PENDING"
         ))
         self._log_event(inc_id, "DETECTED", {
             "risk_score": risk_result.health_emergency_score,
@@ -491,6 +518,10 @@ class IncidentManager:
 
         self._set_camera_incident(camera_id)
         logger.info(f"Incident {inc_id} created | {camera_id} | Person#{person_id} | {event_type} | {severity}")
+
+        if self._evidence_mgr and self._evidence_mgr.enabled:
+            self._evidence_mgr.trigger_capture(inc_id, camera_id, person_id, risk_result, frame)
+
         return inc_id
 
     def _update_incident(self, incident_id: str, fall_result, risk_result):
@@ -519,11 +550,30 @@ class IncidentManager:
         ))
         self._conn.commit()
 
+    def update_evidence(self, incident_id: str, evidence_path: str, start_time: str, end_time: str, duration: float, status: str):
+        try:
+            now = _now_iso()
+            self._conn.execute("""
+                UPDATE incidents SET 
+                    evidence_path=?, 
+                    evidence_start_time=?, 
+                    evidence_end_time=?, 
+                    evidence_duration=?, 
+                    evidence_status=?, 
+                    updated_at=? 
+                WHERE incident_id=?
+            """, (evidence_path, start_time, end_time, duration, status, now, incident_id))
+            self._conn.commit()
+            logger.info(f"Updated evidence for {incident_id}: status={status}, path={evidence_path}")
+            self._log_event(incident_id, "EVIDENCE_UPDATED", {"status": status, "path": evidence_path})
+        except Exception as e:
+            logger.error(f"Failed to update evidence for {incident_id}: {e}")
+
     def _save_snapshot(self, frame: np.ndarray, incident_id: str,
                        person_id: int, risk_result) -> Optional[Path]:
         try:
-            ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-            fname = self._snapshot_dir / f"{incident_id}_{ts}.jpg"
+            ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+            fname = self._snapshot_dir / f"{incident_id}.jpg"
             # Overlay minimal info — no face recognition, no identity
             annotated = frame.copy()
             cv2.putText(annotated, f"INC:{incident_id}", (10, 24),

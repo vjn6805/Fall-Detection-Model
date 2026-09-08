@@ -38,11 +38,17 @@ def run():
     log_cfg = cfg.get("logging", {})
     camera_id = cfg.get("camera", {}).get("id", "CAM-001")
     registry = CameraRegistry(cfg.get("camera", {}).get("registry", "cameras.yaml"))
+    
     incident_mgr = IncidentManager(
         db_path=cfg.get("incident", {}).get("db_path", "outputs/incidents.db"),
         camera_registry=registry,
         snapshot_dir=cfg.get("evidence", {}).get("snapshot_dir", "outputs/snapshots"),
+        evidence_dir=cfg.get("evidence", {}).get("video_dir", "outputs/evidence"),
     )
+
+    from app.evidence_manager import EvidenceManager
+    evidence_mgr = EvidenceManager(cfg, incident_mgr)
+    incident_mgr.set_evidence_manager(evidence_mgr)
 
     state_mgr = StateManager(
         max_frames=cfg["history"]["max_frames"],
@@ -69,6 +75,7 @@ def run():
     fps = 0.0
     pose_ms = 0.0
     frame_times = []
+    ev_overheads = []
 
     while True:
         t_start = time.perf_counter()
@@ -77,6 +84,11 @@ def run():
         if not ok:
             print("[Info] Stream ended or frame unreadable.")
             break
+
+        # Process rolling buffer
+        t_ev = time.perf_counter()
+        evidence_mgr.update(camera_id, frame, time.time())
+        ev_overheads.append((time.perf_counter() - t_ev) * 1000)
 
         try:
             t_pose = time.perf_counter()
@@ -103,6 +115,7 @@ def run():
         frame_times.append(t_end - t_start)
         if len(frame_times) > 30:
             frame_times.pop(0)
+            ev_overheads.pop(0)
         fps = 1.0 / (sum(frame_times) / len(frame_times))
 
     cap.release()
@@ -111,7 +124,8 @@ def run():
     if frame_times:
         avg_fps = 1.0 / (sum(frame_times) / len(frame_times))
         avg_ms = (sum(frame_times) / len(frame_times)) * 1000
-        print(f"[Perf] Avg FPS: {avg_fps:.1f} | Avg latency: {avg_ms:.1f}ms | Device: {detector.device.upper()}")
+        avg_ev_overhead = sum(ev_overheads) / len(ev_overheads) if ev_overheads else 0.0
+        print(f"[Perf] Avg FPS: {avg_fps:.1f} | Avg latency: {avg_ms:.1f}ms | Avg Evidence Overhead: {avg_ev_overhead:.3f}ms | Device: {detector.device.upper()}")
 
 
 if __name__ == "__main__":

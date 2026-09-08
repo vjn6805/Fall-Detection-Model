@@ -28,7 +28,13 @@ import threading
 from pathlib import Path
 from datetime import datetime, timezone
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
+_project_root = str(Path(__file__).parent.parent)
+if _project_root not in sys.path:
+    sys.path.insert(0, _project_root)
+# Remove dashboard/ from path so 'app' resolves to app/ package, not dashboard/app.py
+_dashboard_dir = str(Path(__file__).parent)
+if _dashboard_dir in sys.path:
+    sys.path.remove(_dashboard_dir)
 
 from flask import Flask, jsonify, request, render_template, Response, send_file, abort
 from app.camera_registry import CameraRegistry
@@ -39,13 +45,15 @@ from app.config import load_config
 # Bootstrap
 # ---------------------------------------------------------------------------
 
-cfg = load_config("config.yaml")
+_root = Path(__file__).parent.parent
+cfg = load_config(str(_root / "config.yaml"))
 camera_id_cfg = cfg.get("camera", {}).get("id", "CAM-001")
-registry = CameraRegistry(cfg.get("camera", {}).get("registry", "cameras.yaml"))
+registry = CameraRegistry(str(_root / cfg.get("camera", {}).get("registry", "cameras.yaml")))
 incident_mgr = IncidentManager(
-    db_path=cfg.get("incident", {}).get("db_path", "outputs/incidents.db"),
+    db_path=str(_root / cfg.get("incident", {}).get("db_path", "outputs/incidents.db")),
     camera_registry=registry,
-    snapshot_dir=cfg.get("evidence", {}).get("snapshot_dir", "outputs/snapshots"),
+    snapshot_dir=str(_root / cfg.get("evidence", {}).get("snapshot_dir", "outputs/snapshots")),
+    evidence_dir=str(_root / cfg.get("evidence", {}).get("video_dir", "outputs/evidence")),
 )
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
@@ -204,10 +212,21 @@ def api_snapshot(incident_id):
     inc = incident_mgr.get_incident(incident_id)
     if inc is None:
         abort(404)
-    path = inc.get("evidence_path")
+    path = inc.get("snapshot_path")
     if not path or not Path(path).exists():
         abort(404)
     return send_file(path, mimetype="image/jpeg")
+
+
+@app.route("/api/incidents/<incident_id>/video")
+def api_video(incident_id):
+    inc = incident_mgr.get_incident(incident_id)
+    if inc is None:
+        abort(404)
+    path = inc.get("evidence_path")
+    if not path or not Path(path).exists():
+        abort(404)
+    return send_file(path, mimetype="video/mp4")
 
 
 # ---------------------------------------------------------------------------

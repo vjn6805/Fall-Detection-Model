@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV Fall Detection & Incident Command Center</title>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151d30;
+            --card-bg-hover: #1c273e;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-red: #ef4444;
+            --accent-red-glow: rgba(239, 68, 68, 0.2);
+            --accent-orange: #f97316;
+            --accent-green: #10b981;
+            --accent-blue: #3b82f6;
+            --border-color: #24324f;
+            --font-display: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+            z-index: 10;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            color: var(--accent-red);
+            font-size: 1.5rem;
+            animation: pulse-ring 2s infinite;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #ffffff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .system-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .system-status i {
+            font-size: 0.75rem;
+        }
+
+        /* Main Workspace Layout */
+        .workspace {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Sidebar: Cameras & Incident List */
+        .sidebar {
+            width: 380px;
+            border-right: 1px solid var(--border-color);
+            background-color: rgba(21, 29, 48, 0.5);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sidebar-section {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .sidebar-section.cameras-sec {
+            height: 220px;
+        }
+
+        .sidebar-section.incidents-sec {
+            flex: 1;
+        }
+
+        .section-header {
+            padding: 1rem 1.5rem;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            background-color: rgba(11, 15, 25, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-count {
+            background-color: var(--border-color);
+            color: var(--text-main);
+            font-size: 0.75rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px;
+        }
+
+        .list-container {
+            overflow-y: auto;
+            flex: 1;
+            padding: 0.75rem;
+        }
+
+        /* Camera Item Grid */
+        .camera-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .camera-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .camera-card.incident-active {
+            border-color: var(--accent-red);
+            background-color: rgba(239, 68, 68, 0.05);
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.15);
+        }
+
+        .camera-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .camera-id {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+
+        .camera-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-green);
+        }
+
+        .camera-card.incident-active .camera-indicator {
+            background-color: var(--accent-red);
+            animation: pulse-glow 1.5s infinite;
+        }
+
+        .camera-name {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Incident Item Card */
+        .incident-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .incident-card:hover {
+            background-color: var(--card-bg-hover);
+            transform: translateY(-2px);
+        }
+
+        .incident-card.active {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .incident-card.unresolved {
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .incident-card.resolved {
+            border-left: 4px solid var(--accent-green);
+            opacity: 0.7;
+        }
+
+        .incident-card.dismissed {
+            border-left: 4px solid var(--text-muted);
+            opacity: 0.5;
+        }
+
+        .incident-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .incident-id {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        .incident-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .badge-critical { background-color: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .badge-high { background-color: rgba(249, 115, 22, 0.15); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.3); }
+        .badge-medium { background-color: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .badge-low { background-color: rgba(156, 163, 175, 0.15); color: #d1d5db; border: 1px solid rgba(156, 163, 175, 0.3); }
+
+        .incident-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.35rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .detail-item i {
+            margin-right: 0.25rem;
+            width: 12px;
+        }
+
+        .detail-item.highlight-danger {
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+
+        .incident-time {
+            grid-column: span 2;
+            margin-top: 0.25rem;
+            font-size: 0.7rem;
+        }
+
+        /* Right Panel: Incident Inspection & Evidence Review */
+        .main-panel {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background: radial-gradient(circle at top right, rgba(36, 50, 79, 0.15), transparent);
+        }
+
+        /* Empty State */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            color: var(--text-muted);
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: var(--border-color);
+        }
+
+        .empty-state h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        /* Active Incident Dashboard Card */
+        .dashboard-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .alert-banner {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--accent-red);
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .alert-banner i {
+            animation: pulse-glow 1s infinite alternate;
+        }
+
+        /* Meta Grid */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .meta-box {
+            background-color: rgba(11, 15, 25, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .meta-value.danger {
+            color: var(--accent-red);
+        }
+
+        /* Evidence Section */
+        .evidence-section {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 1.5rem;
+        }
+
+        .video-player-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .video-box {
+            position: relative;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Timeline Marker Container */
+        .timeline-indicator {
+            background-color: rgba(11, 15, 25, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .timeline-track-container {
+            position: relative;
+            height: 8px;
+            background-color: var(--border-color);
+            border-radius: 9999px;
+            margin: 0.25rem 0;
+        }
+
+        .timeline-event-marker {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--accent-red);
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 8px var(--accent-red);
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .timeline-event-marker::after {
+            content: 'FALL';
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-red);
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 0.1rem 0.35rem;
+            border-radius: 3px;
+        }
+
+        .timeline-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Snapshot Block */
+        .snapshot-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .snapshot-box {
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            border: 1px solid var(--border-color);
+            background-color: #000;
+        }
+
+        .snapshot-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Verification Panel (Action Buttons) */
+        .action-panel {
+            display: flex;
+            gap: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.25rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.85rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            font-family: var(--font-display);
+            border: none;
+        }
+
+        .btn-confirm {
+            background-color: var(--accent-red);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-confirm:hover {
+            background-color: #dc2626;
+            transform: translateY(-1px);
+        }
+
+        .btn-dismiss {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-dismiss:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .btn-resolve {
+            background-color: var(--accent-green);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-resolve:hover {
+            background-color: #059669;
+            transform: translateY(-1px);
+        }
+
+        /* Information Panel / Logs */
+        .info-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .info-card h4 {
+            font-family: var(--font-display);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .reasons-list {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .reasons-list li {
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .reasons-list li i {
+            color: var(--accent-orange);
+            font-size: 0.8rem;
+        }
+
+        /* Local System Storage Info Footer */
+        footer {
+            text-align: center;
+            padding: 0.75rem 2rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            background-color: rgba(11, 15, 25, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-note {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-note i {
+            color: var(--accent-blue);
+        }
+
+        /* Animations */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <i class="fa-solid fa-triangle-exclamation logo-icon"></i>
+            <span class="logo-text">Tech.Care CCTV fall detection</span>
+        </div>
+        <div class="system-status">
+            <i class="fa-solid fa-circle"></i>
+            <span>Command Center Online</span>
+        </div>
+    </header>
+
+    <div class="workspace">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Camera Status Section -->
+            <div class="sidebar-section cameras-sec">
+                <div class="section-header">
+                    <span>Camera Feeds</span>
+                    <span class="section-count" id="camera-count">0</span>
+                </div>
+                <div class="list-container" id="camera-list">
+                    <div class="camera-grid" id="camera-grid-inner">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Incidents Section -->
+            <div class="sidebar-section incidents-sec">
+                <div class="section-header">
+                    <span>Incidents & Alarms</span>
+                    <span class="section-count" id="incident-count">0</span>
+                </div>
+                <div class="list-container" id="incident-list">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Detail Panel -->
+        <main class="main-panel" id="main-panel">
+            <div class="empty-state" id="empty-state">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>No Incident Selected</h3>
+                <p>Select an incident from the left sidebar to review video evidence and confirm/dismiss the alert.</p>
+            </div>
+
+            <!-- Dynamic content loaded here -->
+            <div id="active-incident-details" style="display: none;">
+                <div class="dashboard-card">
+                    <div class="dashboard-header">
+                        <div class="alert-banner">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span id="lbl-event-type">POTENTIAL HEALTH EMERGENCY</span>
+                        </div>
+                        <div id="lbl-severity-badge">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Meta Grid -->
+                    <div class="meta-grid">
+                        <div class="meta-box">
+                            <div class="meta-label">Incident ID</div>
+                            <div class="meta-value" id="lbl-incident-id">INC-2026-0001</div>
+                        </div>
+                        <div class="meta-box">
+                            <div class="meta-label">Camera / Location</div>
+                            <div class="meta-value" id="lbl-camera-loc">CAM-017 / Main Lobby</div>
+                        </div>
+                        <div class="meta-box">
+                            <div class="meta-label">Subject ID</div>
+                            <div class="meta-value" id="lbl-person-id">Person #7</div>
+                        </div>
+                        <div class="meta-box">
+                            <div class="meta-label">Risk Score</div>
+                            <div class="meta-value danger" id="lbl-risk-score">0.91</div>
+                        </div>
+                    </div>
+
+                    <!-- Evidence Layout -->
+                    <div class="evidence-section">
+                        <!-- Left: Video Player -->
+                        <div class="video-player-container">
+                            <div class="meta-label">Evidence Clip (Before + Fall + After)</div>
+                            <div class="video-box" id="video-box-container">
+                                <!-- Replaced dynamically with video element -->
+                            </div>
+                            <!-- Visual Timeline Event Marker -->
+                            <div class="timeline-indicator">
+                                <div class="timeline-header">
+                                    <span>Evidence Duration: <strong id="lbl-evidence-duration">--</strong>s</span>
+                                    <span>Status: <strong id="lbl-evidence-status">--</strong></span>
+                                </div>
+                                <div class="timeline-track-container">
+                                    <div class="timeline-event-marker" id="timeline-marker"></div>
+                                </div>
+                                <div class="timeline-labels">
+                                    <span>10s Before</span>
+                                    <span>FALL EVENT</span>
+                                    <span>10s After</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Event Snapshot -->
+                        <div class="snapshot-container">
+                            <div class="meta-label">Event Snapshot</div>
+                            <div class="snapshot-box">
+                                <img id="img-snapshot" src="" alt="Incident Snapshot">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Verification Panel -->
+                    <div class="action-panel" id="action-panel">
+                        <button class="btn btn-dismiss" onclick="handleAction('dismiss')">
+                            <i class="fa-solid fa-xmark"></i> Dismiss Incident
+                        </button>
+                        <button class="btn btn-confirm" onclick="handleAction('confirm')">
+                            <i class="fa-solid fa-check"></i> Confirm Incident
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Incident Context / Reasons -->
+                <div class="info-card" style="margin-top: 1.5rem;">
+                    <h4>Detection Reasons & Evidence Signals</h4>
+                    <ul class="reasons-list" id="lbl-reasons-list">
+                        <!-- Populated dynamically -->
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-note">
+            <i class="fa-solid fa-server"></i>
+            <span>Local Evidence Storage: <strong>outputs/evidence/</strong></span>
+        </div>
+        <div>
+            <span>Retention Period: 7 Days (Configured)</span>
+        </div>
+    </footer>
+
+    <script>
+        let currentIncidentId = null;
+        let activeIncidents = [];
+        let cameras = [];
+
+        // Establish SSE Connection
+        const eventSource = new EventSource('/stream');
+
+        eventSource.addEventListener('init', (e) => {
+            console.log('SSE connection initialized');
+        });
+
+        eventSource.addEventListener('update', (e) => {
+            const data = JSON.parse(e.data);
+            cameras = data.cameras;
+            activeIncidents = data.active_incidents;
+            
+            updateCamerasUI();
+            updateIncidentsUI();
+        });
+
+        eventSource.addEventListener('incident_update', (e) => {
+            const data = JSON.parse(e.data);
+            if (currentIncidentId === data.incident_id) {
+                loadIncidentDetails(currentIncidentId);
+            }
+        });
+
+        function updateCamerasUI() {
+            const container = document.getElementById('camera-grid-inner');
+            container.innerHTML = '';
+            document.getElementById('camera-count').textContent = cameras.length;
+
+            cameras.forEach(cam => {
+                const isIncident = cam.status === 'INCIDENT';
+                const card = document.createElement('div');
+                card.className = `camera-card ${isIncident ? 'incident-active' : ''}`;
+                
+                card.innerHTML = `
+                    <div class="camera-header">
+                        <span class="camera-id">${cam.camera_id}</span>
+                        <div class="camera-indicator"></div>
+                    </div>
+                    <span class="camera-name">${cam.name || 'Unknown Location'}</span>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function updateIncidentsUI() {
+            const container = document.getElementById('incident-list');
+            container.innerHTML = '';
+            document.getElementById('incident-count').textContent = activeIncidents.length;
+
+            if (activeIncidents.length === 0) {
+                container.innerHTML = `<div style="text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 2rem;">No active incidents.</div>`;
+                return;
+            }
+
+            activeIncidents.forEach(inc => {
+                const card = document.createElement('div');
+                const isCurrent = inc.incident_id === currentIncidentId;
+                card.className = `incident-card unresolved ${isCurrent ? 'active' : ''}`;
+                card.onclick = () => selectIncident(inc.incident_id);
+
+                let badgeClass = 'badge-low';
+                if (inc.severity === 'CRITICAL') badgeClass = 'badge-critical';
+                else if (inc.severity === 'HIGH') badgeClass = 'badge-high';
+                else if (inc.severity === 'MEDIUM') badgeClass = 'badge-medium';
+
+                // Format time to show local time
+                const createdTime = new Date(inc.created_at).toLocaleTimeString();
+
+                card.innerHTML = `
+                    <div class="incident-header">
+                        <span class="incident-id">${inc.incident_id}</span>
+                        <span class="incident-badge ${badgeClass}">${inc.severity}</span>
+                    </div>
+                    <div class="incident-details">
+                        <div class="detail-item"><i class="fa-solid fa-video"></i> ${inc.camera_id}</div>
+                        <div class="detail-item highlight-danger"><i class="fa-solid fa-heart-pulse"></i> ${Math.round(inc.health_emergency_score * 100)}%</div>
+                        <div class="detail-item incident-time"><i class="fa-regular fa-clock"></i> ${createdTime} (Local)</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function selectIncident(incidentId) {
+            currentIncidentId = incidentId;
+            
+            // Highlight selected card
+            const cards = document.querySelectorAll('.incident-card');
+            cards.forEach(card => {
+                const idSpan = card.querySelector('.incident-id');
+                if (idSpan && idSpan.textContent === incidentId) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+
+            loadIncidentDetails(incidentId);
+        }
+
+        function loadIncidentDetails(incidentId) {
+            fetch(`/api/incidents/${incidentId}`)
+                .then(res => {
+                    if (!res.ok) throw new Error("Incident not found");
+                    return res.json();
+                })
+                .then(inc => {
+                    document.getElementById('empty-state').style.display = 'none';
+                    document.getElementById('active-incident-details').style.display = 'block';
+
+                    // Update textual elements
+                    document.getElementById('lbl-event-type').textContent = inc.event_type.replace(/_/g, ' ');
+                    document.getElementById('lbl-incident-id').textContent = inc.incident_id;
+                    document.getElementById('lbl-camera-loc').textContent = `${inc.camera_id} / ${inc.camera_name} (${inc.camera_address})`;
+                    document.getElementById('lbl-person-id').textContent = `Person #${inc.person_id}`;
+                    document.getElementById('lbl-risk-score').textContent = inc.health_emergency_score.toFixed(2);
+                    
+                    const durationText = inc.evidence_duration ? inc.evidence_duration.toFixed(1) : '--';
+                    document.getElementById('lbl-evidence-duration').textContent = durationText;
+                    document.getElementById('lbl-evidence-status').textContent = inc.evidence_status;
+
+                    // Set severity badge
+                    const severityContainer = document.getElementById('lbl-severity-badge');
+                    let badgeClass = 'badge-low';
+                    if (inc.severity === 'CRITICAL') badgeClass = 'badge-critical';
+                    else if (inc.severity === 'HIGH') badgeClass = 'badge-high';
+                    else if (inc.severity === 'MEDIUM') badgeClass = 'badge-medium';
+                    severityContainer.innerHTML = `<span class="incident-badge ${badgeClass}" style="font-size:0.85rem">${inc.severity}</span>`;
+
+                    // Set Snapshot Image
+                    document.getElementById('img-snapshot').src = `/api/incidents/${incidentId}/snapshot?t=${Date.now()}`;
+
+                    // Render Video Player
+                    const videoContainer = document.getElementById('video-box-container');
+                    videoContainer.innerHTML = '';
+                    
+                    if (inc.evidence_status === 'READY' || inc.evidence_status === 'PARTIAL') {
+                        const video = document.createElement('video');
+                        video.controls = true;
+                        video.autoplay = false;
+                        video.playsInline = true;
+                        video.name = "media";
+                        
+                        const source = document.createElement('source');
+                        source.src = `/api/incidents/${incidentId}/video`;
+                        source.type = 'video/mp4';
+                        
+                        video.appendChild(source);
+                        videoContainer.appendChild(video);
+                        
+                        // Calculate marker position on timeline
+                        // Total target is pre + post = 20s. Fall occurs around 10s.
+                        // Let's position marker dynamically.
+                        const start = new Date(inc.evidence_start_time).getTime();
+                        const created = new Date(inc.created_at).getTime();
+                        const marker = document.getElementById('timeline-marker');
+                        
+                        if (start && created && inc.evidence_duration > 0) {
+                            const offsetSeconds = (created - start) / 1000.0;
+                            const percent = Math.min(Math.max((offsetSeconds / inc.evidence_duration) * 100, 5), 95);
+                            marker.style.left = `${percent}%`;
+                            marker.style.display = 'block';
+                        } else {
+                            marker.style.left = '50%'; // default to midpoint
+                            marker.style.display = 'block';
+                        }
+                    } else {
+                        // Capturing / Pending state
+                        videoContainer.innerHTML = `
+                            <div style="display:flex; flex-direction:column; align-items:center; gap:0.5rem; color:var(--text-muted); font-size:0.9rem;">
+                                <i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:var(--accent-blue);"></i>
+                                <span>Evidence status: <strong>${inc.evidence_status}</strong></span>
+                                <span style="font-size:0.75rem;">Video compilation is in progress. Please wait...</span>
+                            </div>
+                        `;
+                        document.getElementById('timeline-marker').style.display = 'none';
+                    }
+
+                    // Render Reasons
+                    const reasonsList = document.getElementById('lbl-reasons-list');
+                    reasonsList.innerHTML = '';
+                    if (inc.reasons && inc.reasons.length > 0) {
+                        inc.reasons.forEach(reason => {
+                            const li = document.createElement('li');
+                            li.innerHTML = `<i class="fa-solid fa-chevron-right"></i> <span>${reason}</span>`;
+                            reasonsList.appendChild(li);
+                        });
+                    } else {
+                        reasonsList.innerHTML = `<li><i class="fa-solid fa-chevron-right"></i> No details logged.</li>`;
+                    }
+
+                    // Handle Actions visibility (if already confirmed/dismissed/resolved)
+                    const actionPanel = document.getElementById('action-panel');
+                    if (inc.status === 'UNDER_REVIEW') {
+                        actionPanel.innerHTML = `
+                            <button class="btn btn-dismiss" onclick="handleAction('dismiss')">
+                                <i class="fa-solid fa-xmark"></i> Dismiss Incident
+                            </button>
+                            <button class="btn btn-confirm" onclick="handleAction('confirm')">
+                                <i class="fa-solid fa-check"></i> Confirm Incident
+                            </button>
+                        `;
+                    } else if (inc.status === 'CONFIRMED') {
+                        actionPanel.innerHTML = `
+                            <button class="btn btn-resolve" onclick="handleAction('resolve')">
+                                <i class="fa-solid fa-circle-check"></i> Resolve Incident
+                            </button>
+                        `;
+                    } else {
+                        actionPanel.innerHTML = `
+                            <div style="font-size:0.95rem; font-weight:600; color:var(--text-muted); text-align:center; flex:1;">
+                                <i class="fa-solid fa-circle-check" style="margin-right:0.25rem;"></i> Incident status: <strong>${inc.status}</strong>
+                            </div>
+                        `;
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        }
+
+        function handleAction(action) {
+            if (!currentIncidentId) return;
+
+            let endpoint = `/api/incidents/${currentIncidentId}/${action}`;
+            
+            fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => {
+                if (!res.ok) throw new Error(`${action} action failed`);
+                return res.json();
+            })
+            .then(data => {
+                console.log(`${action} succeeded`, data);
+                // Refresh detail card
+                loadIncidentDetails(currentIncidentId);
+            })
+            .catch(err => {
+                alert(err.message);
+            });
+        }
+    </script>
+</body>
+</html>
